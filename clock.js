@@ -1,5 +1,6 @@
 (function(){
-	var line, c = window.clock = {
+	var c = window.clock = {
+		line: false,
 		init: function(){
 			c.update( true );
 
@@ -15,7 +16,7 @@
 			'px');
 		},
 		update: function(force){
-			line = line || parseInt( $('body').css('line-height') );
+			this.line = this.line || parseInt( $('#hour').find('span').eq(0).height() );
 
 			var d = new Date(),
 				h = d.getHours(),
@@ -23,15 +24,15 @@
 				s = d.getSeconds();
 
 			( force || ( m == 0 && s == 0 ) ) && $('#hour').animate({
-				"scrollTop": ( line * h )
+				"scrollTop": ( this.line * h )
 			},100);
 
 			( force || s == 0 ) && $('#minute').animate({
-				"scrollTop": ( line * m )
+				"scrollTop": ( this.line * m )
 			},100);
 
 			$('#second').animate({
-				"scrollTop": ( line * s )
+				"scrollTop": ( this.line * s )
 			},100);
 
 			force && c.center();
