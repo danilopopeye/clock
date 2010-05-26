@@ -11,9 +11,12 @@
 			});
 		},
 		center: function(){
-			$('#wrapper').css('margin-left', '-' +
-				$('#wrapper').outerWidth() / 2 +
-			'px');
+			var $w = $('#wrapper');
+
+			$w.css({
+				'margin-left': '-' + $w.outerWidth() / 2 + 'px',
+				'margin-top': '-' + $w.outerHeight() / 2 + 'px',
+			});
 		},
 		update: function(force){
 			this.line = this.line || parseInt( $('#hour').find('span').eq(0).height() );
