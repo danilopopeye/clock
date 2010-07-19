@@ -2,13 +2,19 @@
 	var c = window.clock = {
 		line: false,
 		init: function(){
-			c.update( true );
+			$('title').text( i18n.getTitle() )
 
-			timer = setInterval( c.update, 1000, false );
+			this.line = parseInt(
+				$('#hour').find('span').eq(0).height()
+			);
 
-			$(window).unload(function(){
-				clearTimeout( timer );
-			});
+			this.center();
+
+			this.update( true );
+
+			setInterval(
+				$.proxy( c.update, c ), 1000
+			);
 		},
 		center: function(){
 			var $w = $('#wrapper');
@@ -19,8 +25,6 @@
 			});
 		},
 		update: function(force){
-			this.line = this.line || parseInt( $('#hour').find('span').eq(0).height() );
-
 			var d = new Date(),
 				h = d.getHours(),
 				m = d.getMinutes(),
@@ -37,10 +41,8 @@
 			$('#second').animate({
 				"scrollTop": ( this.line * s )
 			},100);
-
-			force && c.center();
 		}
 	};
 
-	$( c.init );
+	$( $.proxy( c.init, c ) );
 })();

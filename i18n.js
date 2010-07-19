@@ -1,21 +1,26 @@
 (function(){
 	window.i18n = {
+		getTitle: function(){
+		  return this[ this.user ].title;
+		},
 		getHour: function(h){
 			console.info( this, arguments );
 		},
 		"pt-BR": {
+			title: "Relógio",
 			text: {
-				"h": "hora",
-				"m": "minuto",
-				"s": "segundo"
-			},
+				h: "hora",
+				m: "minuto",
+				s: "segundo"
+			}
 			
 		},
 		"en-US": {
-			"text": {
-				"h": "hour",
-				"m": "minute",
-				"s": "second"
+			title: "Clock",
+			text: {
+				h: "hour",
+				m: "minute",
+				s: "second"
 			}
 		}
 	};
