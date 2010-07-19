@@ -8,6 +8,10 @@
 				$('#hour').find('span').eq(0).height()
 			);
 
+			$('span').each(function(){
+				this.innerHTML = i18n.number( parseInt( this.className ) );
+			});
+
 			this.center();
 
 			this.update( true );
