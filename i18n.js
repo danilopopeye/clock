@@ -49,10 +49,23 @@
 				h: "hour",
 				m: "minute",
 				s: "second"
+			},
+			number: [ 'zero','one','two','three','four','five','six','seven','eight','nine' ],
+			decimal: [ '-','ten','twenty','thirty','fourty','fifty','sixty','seventy','eighty','ninety' ],
+			other: {
+				11: 'eleven',
+				12: 'twelve',
+				13: 'thirteen',
+				14: 'fourteen',
+				15: 'fifteen',
+				16: 'sixteen',
+				17: 'seventeen',
+				18: 'eighteen',
+				19: 'nineteen'
 			}
 		}
 	};
 
 	// if fail set en-US
-	i18n.user = "pt-BR" || navigator.userLanguage || window.navigator.language || "en-US";
+	i18n.user = navigator.userLanguage || window.navigator.language || "en-US";
 })();
